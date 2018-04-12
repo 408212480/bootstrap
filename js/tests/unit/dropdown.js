@@ -16,6 +16,9 @@ $(function () {
     afterEach: function () {
       $.fn.dropdown = $.fn.bootstrapDropdown
       delete $.fn.bootstrapDropdown
+      if (document.activeElement) {
+        document.activeElement.blur()
+      }
     }
   })
 
@@ -537,7 +540,6 @@ $(function () {
           which: 38
         }))
         assert.ok($(document.activeElement).is($textarea), 'textarea still focused')
-
         done()
       })
 
